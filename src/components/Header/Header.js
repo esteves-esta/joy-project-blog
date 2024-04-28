@@ -2,12 +2,12 @@
 import React from "react";
 import clsx from "clsx";
 import { Rss, Sun, Moon } from "react-feather";
-
+import Link from 'next/link'
 import Logo from "@/components/Logo";
 import VisuallyHidden from "@/components/VisuallyHidden";
 import Cookies from "js-cookie";
 import styles from "./Header.module.css";
-import { LIGHT_TOKENS, DARK_TOKENS } from "@/constants";
+import { LIGHT_TOKENS, DARK_TOKENS } from "@/constants.mjs";
 
 function Header({ className, ...delegated }) {
   const [theme, setTheme] = React.useState("light");
@@ -32,7 +32,7 @@ function Header({ className, ...delegated }) {
       <Logo />
 
       <div className={styles.actions}>
-        <button className={styles.action}>
+        <Link className={styles.action} href="/rss.xml">
           <Rss
             size="1.5rem"
             style={{
@@ -41,7 +41,7 @@ function Header({ className, ...delegated }) {
             }}
           />
           <VisuallyHidden>View RSS feed</VisuallyHidden>
-        </button>
+        </Link>
         <button className={styles.action} onClick={handleTheme}>
           {theme === "light" ? <Sun size="1.5rem" /> : <Moon size="1.5rem" />}
           <VisuallyHidden>Toggle dark / light mode</VisuallyHidden>
