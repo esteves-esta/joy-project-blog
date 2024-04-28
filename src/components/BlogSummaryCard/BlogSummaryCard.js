@@ -26,7 +26,7 @@ function BlogSummaryCard({ slug, title, publishedOn, abstract, tags }) {
       <div className={styles.tagContainer}>
         {tags &&
           tags.map((tag) => {
-            const tagHref = `/category/${tag}`;
+            const tagHref = `/categories/${tag}`;
             return (
               <Link href={tagHref} className={styles.tag} key={tag}>
                 {tag}
