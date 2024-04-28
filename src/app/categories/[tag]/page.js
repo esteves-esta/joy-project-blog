@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   return {
-    title: params.tag,
+    title: `Category: ${params.tag}`,
   };
 }
 
