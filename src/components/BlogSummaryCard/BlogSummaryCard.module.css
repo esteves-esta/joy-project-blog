@@ -12,9 +12,11 @@
   transition: color 200ms;
   margin-bottom: 0.25rem;
 }
+
 .title:hover {
   color: var(--color-primary);
 }
+
 .wrapper time {
   display: block;
   margin-bottom: 1rem;
@@ -22,6 +24,7 @@
   font-size: 1.125rem;
   color: var(--color-decorative-900);
 }
+
 .wrapper p {
   font-size: 1.125rem;
   margin-bottom: 0;
@@ -34,12 +37,33 @@
   transition: transform 200ms;
   font-weight: 400;
 }
+
 .continueReadingLink {
   font-weight: 600;
 }
+
 .continueReadingLink:hover {
   text-underline-offset: 0.125em;
 }
+
 .continueReadingLink:hover .arrow {
   transform: translateX(4px);
+}
+
+.tagContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.tag {
+  text-decoration: none;
+  border-radius: .5em;
+  padding: .3em;
+  background-color: var(--color-selection-background);
+  color: var(--color-selection-text);
+}
+
+.tag:hover {
+  background-color: var(--color-decorative-900);
 }

@@ -16,13 +16,14 @@ async function Home() {
     <div className={styles.wrapper}>
       <h1 className={styles.mainHeading}>Latest Content:</h1>
 
-      {blogPostList.map(({ slug, title, abstract, publishedOn }) => (
+      {blogPostList.map(({ slug, title, abstract, publishedOn, tags }) => (
         <BlogSummaryCard
           key={slug}
           slug={slug}
           title={title}
           abstract={abstract}
           publishedOn={publishedOn}
+          tags={tags}
         />
       ))}
     </div>

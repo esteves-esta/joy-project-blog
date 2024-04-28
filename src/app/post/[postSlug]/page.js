@@ -24,7 +24,15 @@ export async function generateMetadata({ params }) {
 
 async function BlogPost({ params }) {
   const { frontmatter, content } = await loadBlogPost(params.postSlug);
-
+  // const titles = content.match(/#.+$/gm);
+  // const tableOfContents = titles.map((i) => {
+  //   let formatted = i.replaceAll(/#/gm, "");
+  //   formatted = formatted.trim();
+  //   i = `- [${formatted}](#${formatted
+  //     .toLowerCase()
+  //     .replaceAll(" ", "-")})  \n`;
+  //   return i;
+  // });
   return (
     <article className={styles.wrapper}>
       <BlogHero
@@ -32,6 +40,10 @@ async function BlogPost({ params }) {
         publishedOn={frontmatter.publishedOn}
       />
       <div className={styles.page}>
+
+        {/* <span>Table of Contents</span> */}
+        {/* {titles && <MDXRemote source={tableOfContents.join("")} />} */}
+        {/* <hr /> */}
         <MDXRemote
           source={content}
           components={{
