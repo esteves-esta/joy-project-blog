@@ -1,14 +1,17 @@
 import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import dynamic from "next/dynamic"
-
+import dynamic from "next/dynamic";
 import BlogHero from "@/components/BlogHero";
-import CodeSnippet from "@/components/CodeSnippet"
+import CodeSnippet from "@/components/CodeSnippet";
 import styles from "./postSlug.module.css";
 import { loadBlogPost } from "@/helpers/file-helpers";
 
-const DivisionGroupsDemo = dynamic(() => import("@/components/DivisionGroupsDemo"))
-const CircularColorsDemo = dynamic(() => import("@/components/CircularColorsDemo"))
+const DivisionGroupsDemo = dynamic(() =>
+  import("@/components/DivisionGroupsDemo")
+);
+const CircularColorsDemo = dynamic(() =>
+  import("@/components/CircularColorsDemo")
+);
 
 export async function generateMetadata({ params }) {
   const { frontmatter } = await loadBlogPost(params.postSlug);
@@ -21,6 +24,7 @@ export async function generateMetadata({ params }) {
 
 async function BlogPost({ params }) {
   const { frontmatter, content } = await loadBlogPost(params.postSlug);
+
   return (
     <article className={styles.wrapper}>
       <BlogHero
