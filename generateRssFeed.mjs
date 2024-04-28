@@ -31,13 +31,14 @@ async function createRssFeed() {
 async function getFeedPosts(feed) {
   const posts = await helper.getBlogPostListRaw();
 
-  posts.forEach(({ title, slug, abstract, publishedOn }) => {
+  posts.forEach(({ title, slug, abstract, publishedOn, tags}) => {
     feed.item({
       title: title,
       description: abstract,
       url: `http://localhost:3000/${slug}`, // link to the item
       guid: slug, // optional - defaults to url
       date: publishedOn,
+      categories: tags
     });
   });
 }
