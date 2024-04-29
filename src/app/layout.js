@@ -3,7 +3,7 @@ import { Work_Sans, Spline_Sans_Mono } from "next/font/google";
 import clsx from "clsx";
 import { cookies } from "next/headers";
 import { LIGHT_TOKENS, DARK_TOKENS } from "@/constants.mjs";
-
+import MotionPreference from "@/components/MotionPreference";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./styles.css";
@@ -33,9 +33,11 @@ function RootLayout({ children }) {
       style={theme === "light" ? LIGHT_TOKENS : DARK_TOKENS}
     >
       <body>
-        <Header theme={theme} />
-        <main>{children}</main>
-        <Footer />
+        <MotionPreference>
+          <Header theme={theme} />
+          <main>{children}</main>
+          <Footer />
+        </MotionPreference>
       </body>
     </html>
   );
