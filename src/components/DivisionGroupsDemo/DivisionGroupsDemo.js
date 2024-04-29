@@ -52,12 +52,11 @@ function DivisionGroupsDemo({
         <div className={styles.demoWrapper}>
           <div className={clsx(styles.demoArea)} style={gridStructure}>
             {range(numOfGroups).map((groupIndex) => {
-              const items = numOfItemsPerGroup * groupIndex;
-              const total = numOfItemsPerGroup + items;
               return (
-                <motion.div layout="position" key={groupIndex} className={styles.group}>
-                  {range(items, total).map((index) => {
-                    const layoutId = `${id}-${index}`;
+                <div key={groupIndex} className={styles.group}>
+                  {range(numOfItemsPerGroup).map((index) => {
+                    const items = numOfItemsPerGroup * groupIndex;
+                    const layoutId = `${id}-${items + index}`;
                     return (
                       <motion.div
                         layoutId={layoutId}
@@ -66,7 +65,7 @@ function DivisionGroupsDemo({
                       />
                     );
                   })}
-                </motion.div>
+                </div>
               );
             })}
           </div>
